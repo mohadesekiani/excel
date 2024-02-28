@@ -1,0 +1,18 @@
+<div>
+    <input id="uploadBtn" type="file" (change)="readExcel($event)" class="upload input-common" required />
+  </div>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th *ngFor="let header of headers">{{ header }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of excelData">
+          <td *ngFor="let cell of row">{{ cell }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

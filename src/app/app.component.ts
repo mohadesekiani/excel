@@ -154,4 +154,6 @@ export class AppComponent {
       window.URL.revokeObjectURL(url);
     }, 100);
   }
+
+  
 }
