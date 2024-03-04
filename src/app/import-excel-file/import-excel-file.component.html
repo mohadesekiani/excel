@@ -1,18 +1,47 @@
 <div>
-    <input id="uploadBtn" type="file" (change)="readExcel($event)" class="upload input-common" required />
-  </div>
+  <input id="uploadBtn"
+         type="file"
+         (change)="readExcel($event)"
+         class="upload input-common"
+         required />
+</div>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th *ngFor="let header of headers">{{ header }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of excelData">
+        <td *ngFor="let cell of row">{{ cell }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+<form [formGroup]="form"
+      class="example-form">
+
+
   <div>
-    <table>
-      <thead>
-        <tr>
-          <th *ngFor="let header of headers">{{ header }}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let row of excelData">
-          <td *ngFor="let cell of row">{{ cell }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <label for="name">Name:</label>
+    <input type="text"
+           id="name"
+           formControlName="name"
+           placeholder="Enter Name">
   </div>
-  
+  <div formArrayName="skills">
+    <div *ngFor="let skillGroup of skills.controls; let i=index"
+         [formGroupName]="i">
+      <div>
+        <label for="skillName{{i}}">Skill Name:</label>
+        <input type="text"
+               id="skillName{{i}}"
+               formControlName="name"
+               placeholder="Enter Skill Name">
+      </div>
+
+    </div>
+  </div>
+</form>
