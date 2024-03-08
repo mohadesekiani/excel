@@ -1,9 +1,64 @@
+/* استایل برای فرم */
 .example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .example-full-width {
-    width: 100%;
-  }
+  font-family: Arial, sans-serif;
+  max-width: 400px;
+  margin: 10px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+/* استایل برای بخش‌های فرم */
+.example-form > div {
+  margin-bottom: 15px;
+}
+
+/* استایل برای برچسب‌ها */
+.example-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* استایل برای ورودی‌های متنی */
+.example-form input[type="text"] {
+  width: calc(100% - 10px);
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+/* استایل برای دکمه آپلود */
+.upload {
+  display: block;
+  margin-top: 10px;
+}
+
+/* استایل برای جدول */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* استایل برای سرصفحه جدول */
+table thead {
+  background-color: #f2f2f2;
+}
+
+/* استایل برای هر سلول در جدول */
+table td, table th {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+/* استایل برای ردیفهای زوج در جدول */
+table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+span{
+  color: red;
+}

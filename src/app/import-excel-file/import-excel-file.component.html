@@ -21,27 +21,60 @@
 
 </div>
 <form [formGroup]="form"
+      *ngIf="visible"
       class="example-form">
 
 
   <div>
-    <label for="name">Name:</label>
-    <input type="text"
-           id="name"
-           formControlName="name"
-           placeholder="Enter Name">
+    <div>
+
+      <label for="name">Name:</label>
+      <input type="text"
+             id="name"
+             formControlName="name"
+             placeholder="Enter Name">
+      <div *ngIf="form.get('name').invalid"
+           class="error-message">
+        <span *ngIf="form.get('name').errors.required">Name is required.</span>
+        <span *ngIf="form.get('name').errors.minlength">Name must be at least 10 characters.</span>
+      </div>
+    </div>
+    <div>
+
+      <label for="name">age:</label>
+      <input type="text"
+             id="age"
+             formControlName="age"
+             placeholder="Enter age">
+      <div *ngIf="form.get('age').invalid"
+           class="error-message">
+        <span *ngIf="form.get('age').errors.required">Age is required.</span>
+        <span *ngIf="form.get('age').errors.min">Age must be at least 1.</span>
+        <span *ngIf="form.get('age').errors.max">Age must be at most 99.</span>
+      </div>
+    </div>
+    <div>
+
+      <label for="nationalCode">nationalCode:</label>
+      <input type="text"
+             id="nationalCode"
+             formControlName="nationalCode"
+             placeholder="Enter nationalCode">
+      <div *ngIf="form.get('nationalCode').invalid"
+           class="error-message">
+        <span *ngIf="form.get('nationalCode').errors.required">National Code is required.</span>
+        <span *ngIf="form.get('nationalCode').errors.minlength || form.get('nationalCode').errors.maxlength">National
+          Code must be exactly 10 digits.</span>
+      </div>
+    </div>
   </div>
   <div formArrayName="skills">
-    <div *ngFor="let skillGroup of skills.controls; let i=index"
-         [formGroupName]="i">
-      <div>
-        <label for="skillName{{i}}">Skill Name:</label>
-        <input type="text"
-               id="skillName{{i}}"
-               formControlName="name"
-               placeholder="Enter Skill Name">
-      </div>
+    <div *ngFor="let control of this.form.get('skills').controls; let i=index">
+      <label for="name">skill{{i+1}}:</label>
 
+      <input type="text"
+             [formControlName]="i">
     </div>
+
   </div>
 </form>
